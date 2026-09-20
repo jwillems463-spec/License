@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>R068 Distinction Checklist</title>
+<meta name="description" content="A tickable Mark Band 3 checklist for the OCR R068 Secure Case set assignment.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap">
+<style id="ck-style">
+*,*::before,*::after{box-sizing:border-box}
+:root{
+color-scheme:light;
+padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);
+--ground:#F1F2F5;--surface:#FFFFFF;--sunk:#E5E8EE;
+--ink:#171A20;--ink-2:#4C5261;--ink-3:#828995;
+--rule:#D7DAE2;--rule-soft:#E5E7ED;
+--gold:#A97B25;--gold-deep:#7C590F;--gold-soft:#EFE3C6;
+--good:#2F6D55;--bad:#9C3226;--focus:#2F6FB5;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+color-scheme:dark;
+--ground:#131519;--surface:#1B1E25;--sunk:#23272F;
+--ink:#E9EBEF;--ink-2:#A6ADBB;--ink-3:#79808E;
+--rule:#2C303A;--rule-soft:#23262E;
+--gold:#D9A93F;--gold-deep:#EBC469;--gold-soft:#3A2F16;
+--good:#63BE9B;--bad:#DD8577;--focus:#7FB2E8;
+}}
+:root[data-theme="dark"]{
+color-scheme:dark;
+--ground:#131519;--surface:#1B1E25;--sunk:#23272F;
+--ink:#E9EBEF;--ink-2:#A6ADBB;--ink-3:#79808E;
+--rule:#2C303A;--rule-soft:#23262E;
+--gold:#D9A93F;--gold-deep:#EBC469;--gold-soft:#3A2F16;
+--good:#63BE9B;--bad:#DD8577;--focus:#7FB2E8;
+}
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--ground);color:var(--ink);font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:820px;margin:0 auto;padding-inline:20px}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ground);border-bottom:1px solid var(--rule)}
+.bar-in{max-width:820px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.bar-count{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.bar-count b{color:var(--ink);font-weight:600}
+.bar-line{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:transparent}
+.bar-line i{display:block;height:2px;width:0;background:var(--gold);transition:width .25s ease}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-2);white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:0 0 auto}
+.pill[data-s="saved"] .dot{background:var(--good)}
+.pill[data-s="saving"] .dot{background:var(--gold)}
+.pill[data-s="error"] .dot{background:var(--bad)}
+
+.mast{padding-block:44px 30px}
+.eyebrow{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--gold-deep);margin:0 0 16px}
+h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(30px,6.4vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.dek{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(17px,3.4vw,21px);line-height:1.45;color:var(--ink-2);margin:14px 0 0;max-width:36ch}
+
+.facts{margin:32px 0 0;padding:0;list-style:none;display:grid;gap:14px}
+.facts li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline}
+.facts .k{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);min-width:78px}
+.facts .v{font-size:14.5px;color:var(--ink-2);max-width:62ch}
+.facts .v b{color:var(--ink);font-weight:600}
+
+/* mark map */
+.map{margin:30px 0 0;border-top:1px solid var(--rule);padding-top:20px}
+.map-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 11px}
+.map-bar{display:flex;gap:3px;height:10px}
+.map-bar i{display:block;background:var(--sunk);border-radius:1px}
+.map-bar i.hot{background:var(--gold)}
+.map-key{list-style:none;margin:11px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.map-key li{font-size:12.5px;color:var(--ink-2)}
+.map-key b{color:var(--ink);font-weight:600}
+.map-key li.hot b,.map-key li.hot span{color:var(--gold-deep)}
+.map-note{margin:12px 0 0;font-size:13px;color:var(--ink-2);max-width:60ch}
+
+.ladder{margin:26px 0 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding-block:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rung .n{font-size:11px;letter-spacing:.08em;color:var(--ink-3)}
+.rung .w{display:block;font-family:"Newsreader",Georgia,serif;font-size:21px;margin-top:2px}
+.rung p{margin:4px 0 0;font-size:13px;color:var(--ink-2);line-height:1.45}
+.rung.top .w,.rung.top .n{color:var(--gold-deep)}
+
+.tiles{margin:26px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:12px 13px 13px}
+.tile:hover{border-color:var(--ink-3)}
+.tile:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.tile .tt{font-size:11px;letter-spacing:.08em;color:var(--ink-3)}
+.tile .tn{display:block;font-size:13.5px;font-weight:500;line-height:1.3;margin:5px 0 10px;min-height:2.6em}
+.tile .tc{font-size:12px;color:var(--ink-2)}
+.tile.full .tc{color:var(--good)}
+
+.meter{height:3px;background:var(--sunk);border-radius:2px;overflow:hidden;margin-bottom:7px}
+.meter i{display:block;height:3px;width:0;background:var(--gold);transition:width .25s ease}
+.full .meter i,.done .meter i{background:var(--good)}
+
+section.ta{padding-block:38px 6px;scroll-margin-top:72px;border-top:1px solid var(--rule)}
+.ta-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-size:11.5px;letter-spacing:.1em;color:var(--gold-deep);border:1px solid var(--gold-soft);background:var(--gold-soft);padding:2px 7px;border-radius:2px}
+.marks{font-size:12px;color:var(--ink-3);margin-left:auto}
+h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(23px,4.6vw,30px);line-height:1.15;margin:0;letter-spacing:-.01em}
+.ta-spec{margin:9px 0 0;font-size:13px;color:var(--ink-3);max-width:60ch}
+.ta-meter{margin:18px 0 0;display:flex;align-items:center;gap:12px}
+.ta-meter .meter{flex:1;margin:0}
+.ta-meter .c{font-size:12px;color:var(--ink-2);white-space:nowrap}
+.ta-meter.done .c{color:var(--good)}
+.band{margin:20px 0 4px;font-size:14.5px;line-height:1.55;max-width:62ch}
+.band .bl{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-right:9px}
+.band .bt{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:17px;color:var(--ink-2)}
+
+.ex{margin:18px 0 0;border:1px solid var(--rule);border-radius:3px;background:var(--surface);padding:0 14px}
+.ex>summary{cursor:pointer;list-style:none;padding:11px 0;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:9px}
+.ex>summary::-webkit-details-marker{display:none}
+.ex>summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--gold-deep);border-bottom:1.5px solid var(--gold-deep);transform:rotate(-45deg);flex:0 0 auto}
+.ex[open]>summary::before{transform:rotate(45deg)}
+.ex>summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.ex ul{list-style:none;margin:0;padding:0}
+.ex li{padding:12px 0;border-top:1px solid var(--rule-soft)}
+.ex-lab{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
+.ex-x{font-family:"Newsreader",Georgia,serif;font-size:16px;line-height:1.5;color:var(--ink);max-width:58ch;display:block}
+.ex-note{margin:0;padding:11px 0 13px;border-top:1px solid var(--rule-soft);font-size:12px;color:var(--ink-3);line-height:1.5}
+
+ul.items{list-style:none;margin:14px 0 0;padding:0}
+li.item{display:flex;gap:13px;align-items:flex-start;padding:13px 0;border-top:1px solid var(--rule-soft)}
+li.item:first-child{border-top:0}
+.box{appearance:none;-webkit-appearance:none;width:19px;height:19px;margin:2px 0 0;flex:0 0 auto;border:1.5px solid var(--rule);border-radius:3px;background:var(--surface);cursor:pointer;display:grid;place-content:center}
+.box::after{content:"";width:9px;height:5px;border-left:2px solid var(--surface);border-bottom:2px solid var(--surface);transform:rotate(-45deg) scale(.5);opacity:0}
+.box:hover{border-color:var(--ink-3)}
+.box:checked{background:var(--gold);border-color:var(--gold)}
+.box:checked::after{opacity:1;transform:rotate(-45deg) scale(1)}
+.box:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.item-body{cursor:pointer;display:block}
+.item-t{display:block;font-weight:600;font-size:15px;line-height:1.4;text-wrap:pretty}
+.item-w{display:block;margin-top:3px;font-size:13.5px;line-height:1.5;color:var(--ink-2);max-width:60ch}
+li.item.done .item-t{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--rule);text-decoration-thickness:1px}
+li.item.done .item-w{color:var(--ink-3)}
+
+.words{padding-block:40px 8px;border-top:1px solid var(--rule);scroll-margin-top:72px}
+.words .lead{margin:9px 0 0;font-size:13px;color:var(--ink-3);max-width:62ch}
+.words dl{margin:20px 0 0;display:grid;grid-template-columns:auto 1fr;gap:11px 18px}
+.words dt{font-family:"Newsreader",Georgia,serif;font-size:17px;color:var(--gold-deep);white-space:nowrap}
+.words dd{margin:0;font-size:14px;color:var(--ink-2);line-height:1.5;max-width:56ch}
+
+.pit{padding-block:40px 8px;border-top:1px solid var(--rule);scroll-margin-top:72px}
+.pit .lead{margin:9px 0 0;font-size:13px;color:var(--ink-3);max-width:58ch}
+.pit ol{list-style:none;counter-reset:p;margin:20px 0 0;padding:0}
+.pit li{counter-increment:p;display:grid;grid-template-columns:auto 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--rule-soft);align-items:baseline}
+.pit li::before{content:counter(p,decimal-leading-zero);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;color:var(--bad)}
+.pit li span{font-size:14.5px;line-height:1.5;max-width:60ch}
+
+footer{padding-block:38px 72px;border-top:1px solid var(--rule);margin-top:40px}
+footer p{margin:0 0 12px;font-size:13px;color:var(--ink-3);max-width:62ch;line-height:1.55}
+.reset{margin-top:8px;font:inherit;font-size:12.5px;color:var(--ink-2);background:transparent;border:1px solid var(--rule);border-radius:3px;padding:6px 11px;cursor:pointer}
+.reset:hover{border-color:var(--ink-3)}
+.reset[data-armed="1"]{color:var(--bad);border-color:var(--bad)}
+.reset:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+@media (max-width:720px){
+.tiles{grid-template-columns:repeat(2,1fr)}
+.ladder{grid-template-columns:1fr;gap:14px}
+.facts li{grid-template-columns:1fr;gap:2px}
+.facts .k{min-width:0}
+.words dl{grid-template-columns:1fr;gap:3px 0}
+.words dd{margin-bottom:9px}
+.marks{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script id="ck-state" type="application/json">{"v":2,"checked":{},"updatedAt":0}</script>
+<script id="ck-code">
+var FONTS="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap";
+var TITLE="R068 Distinction Checklist";
+var LS="r068-checklist-v2";
+
+var DATA=[
+{id:"t1",tag:"TASK 1",title:"Complete market research",marks:12,
+spec:"Assesses Topic Area 1 · 12 marks",
+band:"A comprehensive explanation of the aims, two fully effective tools, comprehensively justified sampling, and a comprehensive review of what came back.",
+ex:[
+{l:"An aim, written so it can be marked",x:"“To find out which case features students aged 16–19 value most, so that the design mix in Task 3 answers a real preference rather than my own taste.”"},
+{l:"Justifying the sampling method",x:"“I used quota sampling rather than convenience sampling because one aim was to compare preferences between laptop sizes, and sampling only my own class would have given me almost entirely 13-inch users.”"},
+{l:"Reviewing results against the aims",x:"“My second aim was to find out what customers will pay. 41 of 60 respondents chose the £25–£35 band, which answers that aim. But I did not ask what case they currently own, so I cannot tell whether that figure comes from replacement buyers or first-time buyers.”"}
+],
+items:[
+{t:"Explain the overall aims of your research first",w:"What you need to find out about laptop-case buyers, and why. Everything else is marked against these aims, so write them before you build anything."},
+{t:"Use exactly two tools — one primary, one secondary",w:"The brief specifies one of each. A missing type caps the band; a third tool earns nothing extra."},
+{t:"Make sure the two tools together collect quantitative and qualitative data",w:"Closed questions and rating scales give you numbers; open questions give you reasons. Both are required."},
+{t:"Ask about customer preferences you will reuse in Task 2",w:"The brief says to. Your customer profile has to be justified from these findings, so plant the questions now."},
+{t:"Tie every question back to one of your aims",w:"Mark Band 3 wants outcomes ‘fully relevant to the aims’. A question serving no aim is dead weight on the page."},
+{t:"Name your sampling method and justify it comprehensively",w:"Random, quota, stratified or convenience. The brief warns that the most useful method is not necessarily the easiest one to carry out."},
+{t:"Reference your secondary source clearly",w:"Named source, date and URL — the brief asks for this explicitly."},
+{t:"Actually carry out the research and keep the raw evidence",w:"Blank tools plus the completed responses both go into the submission."},
+{t:"Collate the results and present them with effective methods",w:"The right chart for each data type, with totals and sample size visible."},
+{t:"Review the collated results against your original aims",w:"The brief tells you to consider your initial aims. A comprehensive review answers: did I find out what I set out to find out, and what does that mean for the design?"},
+{t:"Work independently on the primary research",w:"Your own choices and decisions — ‘independent’ is one of the marking criteria words."}
+]},
+{id:"t2",tag:"TASK 2",title:"Identify a customer profile",marks:6,
+spec:"Assesses Topic Area 2 · 6 marks",
+band:"The features of a specific profile described in detail, justified in detail, with reference to the market research findings.",
+ex:[
+{l:"A feature with its justification attached",x:"“Age 16–19: 68% of respondents in this band said they carry a laptop every day, against 24% of the over-25s, so this is the group most likely to need a replacement case.”"},
+{l:"Naming the segmentation technique",x:"“Behavioural segmentation: this customer buys on durability rather than brand. ‘Protection’ was the most chosen priority (34 of 60) while ‘brand name’ was chosen 4 times.”"},
+{l:"Pointing the profile at the design",x:"“Because this customer travels by bus and carries books as well as a laptop, the profile points towards a shoulder strap and an external pocket rather than a slim sleeve.”"}
+],
+items:[
+{t:"Apply market segmentation techniques by name",w:"Demographic, geographic, psychographic, behavioural. The grid rewards using the techniques, not just listing traits."},
+{t:"Describe the features in detail, and keep the profile specific",w:"Age, gender, income, occupation, location, lifestyle — plus how and why this person buys a laptop case."},
+{t:"Point every feature at a Task 1 finding",w:"‘Detailed justification … with reference to the market research findings’ is the Mark Band 3 line. Quote your own data back."},
+{t:"Keep the profile relevant to this product only",w:"The brief says it only needs to match the segmentation relevant to the new case. Don’t profile Secure Case’s whole market."},
+{t:"Make it specific enough to design against",w:"If the profile fits everybody, Task 3 has nothing to justify its design mix with."}
+]},
+{id:"t3",tag:"TASK 3",title:"Produce a design proposal",marks:9,
+spec:"Assesses part of Topic Area 3 · 9 marks",
+band:"An appropriate design mix with comprehensive justification, effective use of a creative technique, and a comprehensive description of how the mix and findings shaped the design.",
+ex:[
+{l:"Design mix — aesthetics",x:"“Aesthetics: non-standard single colour (£2.50). ‘Plain but not black’ was the most common preference in my research (22 of 60), and a multi-coloured case at £3.00 would add cost without matching what the profile asked for.”"},
+{l:"Design mix — function",x:"“Function: waterproofing (£2.75), because 71% of respondents said they walk or cycle to college and rain damage was the worry mentioned most often in the open question.”"},
+{l:"How the mix informed the design",x:"“The design mix put protection above appearance, so I chose the hard recycled plastic shell over neoprene even though neoprene is £2.00 cheaper in the small size.”"}
+],
+items:[
+{t:"Outline the design mix for your case",w:"Aesthetics, function and performance, cost and economic manufacture — built from your customer profile and your findings, not from taste."},
+{t:"Give reasons for every element of the design mix",w:"Mark Band 3 asks for comprehensive justification, each reason referring to the profile and the research."},
+{t:"Use a named creative technique and show the working",w:"Mood board, mind map, brainstorm, morphological chart. The grid marks ‘effective use of a creative technique’, so the evidence of it has to be in the submission."},
+{t:"Generate one product design idea",w:"The brief asks for one, not three. Depth of justification is what scores here, not a spread of alternatives."},
+{t:"Choose one material, one colour, one handle, one fastener, and at least one add-on",w:"Strictly from the option tables on pages 4–5 of the brief. Anything off-list breaks your costings in Task 5."},
+{t:"Fix the case size — small or large — and stay consistent",w:"Material prices differ by size. Deciding late is where arithmetic errors get in."},
+{t:"Describe how the design mix and findings informed the design",w:"This is a separate mark strand from the justification. Give it its own section so the moderator can find it."},
+{t:"Keep half an eye on what you are spending",w:"The brief warns this affects viability. Vegan leather at £12 with a £6 built-in charger has to sell at a price your profile will actually pay."},
+{t:"Don’t worry about the quality of the drawing",w:"The brief states drawing skills are not assessed. Spend the time on clear labelling instead."}
+]},
+{id:"t4",tag:"TASK 4",title:"Develop the product proposal",marks:9,
+spec:"Assesses part of Topic Area 3 · 9 marks",
+band:"Detailed reference to your self-assessment and to both kinds of feedback, modifications with clear relevance and full description, and reasons for the final design that are fully justified.",
+ex:[
+{l:"Self-assessment, being critical",x:"“On my own review the external pocket is too small for an A4 pad, which weakens the ‘carries books as well’ function I claimed in Task 3.”"},
+{l:"Feedback turned into a labelled change",x:"“Two of the three people I showed it to said the single strap looked uncomfortable when the case was full. I have widened the strap pad — shown as Alteration 2 on the final drawing.”"},
+{l:"Justifying the final design",x:"“The final design keeps the recycled plastic shell (function: protection, as set out in my design mix) but moves the charger to the inside face, because both written responses said an external charging port looked easy to snap off.”"}
+],
+items:[
+{t:"Write a self-assessment of your design, and be critical",w:"The brief says be honest. ‘Everything is perfect’ leaves you nothing to modify, and this task is marked on the modifying."},
+{t:"Get both verbal and written feedback",w:"Both types are named in the grid. Missing either one caps the band."},
+{t:"Get it from different individuals who fit your customer profile",w:"The brief says these people give the most helpful feedback — and it ties this task back to Task 2."},
+{t:"Evidence the feedback",w:"Notes from the verbal feedback, the written responses themselves, and who each came from."},
+{t:"Summarise strengths and weaknesses",w:"Both. Only one of the two is where Mark Band 1 lives."},
+{t:"Modify the design and label every alteration clearly",w:"The grid wants modifications with clear relevance to the self-assessment and feedback, fully described."},
+{t:"Produce the final design as its own labelled drawing",w:"Before and after should be comparable at a glance."},
+{t:"Fully justify the reasons for the final design",w:"Referring to the aesthetics and function elements of your design mix as well as the feedback — the brief asks for exactly this."}
+]},
+{id:"t5",tag:"TASK 5",title:"Review financial viability",marks:18,
+spec:"Assesses Topic Area 4 · 18 marks · Part One 9, Part Two 9",
+band:"All relevant costs identified, every calculation accurate, pricing reasoning clearly focused on the customer profile, and a full evaluation of viability.",
+ex:[
+{l:"Variable cost, built up line by line",x:"“Recycled plastic, large £8.70 + non-standard colour £2.50 + shoulder strap £1.25 + zip, large £2.10 + waterproofing £2.75 + internal pocket £1.00 = £18.30 variable cost per case.”"},
+{l:"Break-even, with the formula shown",x:"“Break-even = fixed costs ÷ (selling price − variable cost) = £12,000 ÷ (£34.99 − £18.30) = £12,000 ÷ £16.69 = 718.99, so 719 cases must be sold in the month to cover costs.”"},
+{l:"Evaluating viability, and deciding",x:"“I predicted 450 sales in month one, which is 269 short of break-even, so at this price the proposal is not viable. Raising the price to £39.99 lowers break-even to 554 cases, but only 9 of 60 respondents said they would pay over £35 — so removing waterproofing (−£2.75) is the safer change.”"}
+],
+items:[
+{t:"Identify all relevant costs, including the £12,000 monthly fixed cost",w:"Mark Band 3 says ‘all relevant costs’. The fixed cost is the one candidates forget, and it is stated in the scenario."},
+{t:"Calculate the total variable cost of one case accurately",w:"Material + colour + handle + fastener + every add-on, at your chosen size. Show it line by line so a slip is visible and recoverable."},
+{t:"Predict first-month unit sales with detailed reasoning",w:"The brief says make it realistic for a new product from a small business. Reason from your research, not from ambition."},
+{t:"Name a pricing strategy and set a selling price",w:"Cost-plus, competitive, skimming, penetration, psychological — name it rather than implying it."},
+{t:"Focus the pricing reasoning clearly on your customer profile",w:"On this strand the only difference between the bands is how closely the reasoning references the profile. Mention it by name."},
+{t:"Calculate predicted total costs for month one",w:"Fixed £12,000 + (variable cost per unit × predicted units)."},
+{t:"Calculate predicted revenue for month one",w:"Selling price × predicted units."},
+{t:"Calculate predicted total profit for month one",w:"Revenue − total costs. State the figure plainly."},
+{t:"Apply the break-even formula accurately",w:"Fixed costs ÷ (selling price − variable cost per unit). Show the formula, the substitution and the answer."},
+{t:"Describe what the break-even result actually shows",w:"How many units cover costs, and how that compares with the sales you predicted for month one."},
+{t:"Describe the impact of a price change on break-even",w:"Comprehensively: a higher price raises contribution and lowers the break-even units — then say what that does to demand from your profile."},
+{t:"Evaluate the financial viability using all your calculations",w:"A full evaluation reaches a judgement and says what you would change — selling price, material, add-ons — if you don’t break even or make a profit."},
+{t:"Link the evaluation to economic manufacture",w:"The brief suggests it, and it connects Task 5 back to the design mix for very little extra writing."},
+{t:"Check every calculation twice, slowly",w:"18 of the 60 marks sit in this task and most of them are accuracy marks. This is the highest-value hour of the whole assignment."}
+]},
+{id:"t6",tag:"TASK 6",title:"Review risks and challenges",marks:6,
+spec:"Assesses Topic Area 5 · 6 marks",
+band:"A comprehensive and realistic explanation of the risks, a full evaluation of their impact, and detailed reference to how each could be minimised or overcome.",
+ex:[
+{l:"A risk, explained in this business’s terms",x:"“Supplier price rises: recycled plastic is the second most expensive hard shell on the list. A 10% rise would add £0.87 to every case and push break-even from 719 to 759 cases in the month.”"},
+{l:"Evaluating the impact",x:"“This is a medium risk. Secure Case sells online only, so it cannot absorb the rise through cheaper distribution, and my customer profile is price-sensitive, so passing it on would cost sales.”"},
+{l:"How it could be minimised",x:"“Agree a fixed-price supply contract for the first six months, or approve the standard plastic shell as an alternative so production can switch without a redesign.”"}
+],
+items:[
+{t:"Explain the risks and challenges for this case and this business",w:"Specific to your design and to Secure Case producing and launching it — not risks to businesses in general."},
+{t:"Work from the risks and challenges in R068 Topic Area 5.1.1",w:"The brief points you there, and it includes the impact of external factors."},
+{t:"Keep them realistic",w:"Mark Band 3 asks for ‘comprehensive and realistic’. Five likely risks explained well beat ten far-fetched ones."},
+{t:"Evaluate the impact of each on the success of the proposal",w:"Not just what could go wrong — what it would do to your sales, your costs or your launch."},
+{t:"Say in detail how each could be minimised or overcome",w:"A named Mark Band 3 requirement, and the part of Task 6 that is most often left thin."}
+]},
+{id:"adm",tag:"SUBMIT",title:"Presentation, evidence and admin",marks:0,
+spec:"The marks that get lost after the thinking is already done",
+band:"Work a moderator can navigate, with every claim evidenced and every calculation visible.",
+items:[
+{t:"Check you are on the right brief",w:"This one is Secure Case, issued on or after 1 June 2026 and valid for the January and June 2027 series only. A different scenario means a different assignment."},
+{t:"Head your sections with the brief’s own task numbering",w:"Task 1 to Task 6. The work is marked task by task — make each one findable in seconds."},
+{t:"Produce something for all six tasks",w:"Any task left out is a guaranteed loss of its full mark allocation, and Task 5 alone is worth 18."},
+{t:"Include every piece of evidence",w:"Blank and completed research tools, feedback records, both design drawings, and all calculations."},
+{t:"Keep every calculation visible — formula, substitution, answer",w:"Accuracy marks need to be seen to be awarded. An answer with no working is hard to credit."},
+{t:"Check every image is readable at print size",w:"Photographed sketches and screenshots are where evidence quietly disappears."},
+{t:"Write a full reference list",w:"Source, URL and date accessed for your secondary research."},
+{t:"Plan your time against the 10–14 guided learning hours",w:"That is what the brief allows teachers to give you. Weight it toward Task 5."},
+{t:"Ask your teacher your questions early",w:"The rules in Section 6 of the specification limit the help they can give once you are into the assessment."},
+{t:"Complete and sign the authentication statement",w:"You are declaring the work is your own. It has to be."},
+{t:"Back the files up somewhere other than one laptop",w:"Lost coursework two days before the deadline is a preventable disaster."}
+]}
+];
+
+var WORDS=[
+["Comprehensive","Complete — includes everything required to show depth and breadth of understanding."],
+["Detailed","Gives point-by-point consideration of all the key information."],
+["Fully","Comprehensive in range and scope; the result is fully fit for purpose."],
+["Justify","The reasons for doing something are explained in full."],
+["Accurate","Correct in all details; performed with care and precision."],
+["Clear","Focused and accurately expressed, without ambiguity."],
+["All","Fully comprehensive and wide-ranging — almost all or all of what a full response expects."],
+["Effective","Successful in producing the intended result, in relation to the brief."]
+];
+
+var PITS=[
+"Describing instead of justifying — the single most common reason good work sits in Mark Band 2.",
+"Research that never visibly changes a decision in Tasks 2, 3 or 5.",
+"A customer profile so broad it excludes nobody, leaving the design mix nothing to answer to.",
+"Arithmetic slips in Task 5, where nearly a third of the unit’s marks live.",
+"Forgetting the £12,000 fixed cost in the total-cost and break-even calculations.",
+"Only one kind of feedback in Task 4, when the grid names both verbal and written.",
+"Risks in Task 6 listed but never evaluated, and no realistic way to overcome them.",
+"Text lifted from websites without referencing — that is malpractice, not a lost mark."
+];
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+function ids(s,i){return s.id+"-"+(i+1);}
+
+var state={v:2,checked:{},updatedAt:0};
+try{var p=JSON.parse(document.getElementById("ck-state").textContent);if(p&&typeof p==="object"){state.checked=p.checked||{};state.updatedAt=p.updatedAt||0;}}catch(e){}
+
+var total=0;DATA.forEach(function(s){total+=s.items.length;});
+var TASKS=DATA.slice(0,6);
+
+function bar(){
+return '<div class="bar"><div class="bar-in">'
++'<span class="bar-count mono" id="barcount"><b>0</b> of '+total+' done</span>'
++'<span class="pill" id="pill" hidden><i class="dot"></i><span class="t"></span></span>'
++'</div><span class="bar-line"><i id="barfill"></i></span></div>';
+}
+
+function map(){
+return '<div class="map"><p class="map-h mono">Where the 60 marks are</p>'
++'<div class="map-bar">'+TASKS.map(function(s){
+return '<i class="'+(s.marks===18?"hot":"")+'" style="width:'+(s.marks/60*100)+'%"></i>';
+}).join("")+'</div>'
++'<ul class="map-key">'+TASKS.map(function(s,i){
+return '<li class="'+(s.marks===18?"hot":"")+'"><span class="mono">T'+(i+1)+'</span> '+esc(s.title)+' <b class="mono">'+s.marks+'</b></li>';
+}).join("")+'</ul>'
++'<p class="map-note">Task 5 carries 18 marks on its own — nearly a third of the unit — and most of them are accuracy marks on calculations you can check. It is the cheapest place to gain marks and the easiest to throw them away.</p></div>';
+}
+
+function mast(){
+return '<div class="wrap mast">'
++'<p class="eyebrow mono">Cambridge National in Enterprise &amp; Marketing · Set assignment: Secure Case</p>'
++'<h1>R068: Design a business proposal</h1>'
++'<p class="dek">What Mark Band 3 work has in it, task by task, for the Secure Case laptop-case brief.</p>'
++'<ul class="facts">'
++'<li><span class="k mono">The grade</span><span class="v">D⁎ is a <b>qualification</b> grade, worked out from R067, R068 and R069 together — not something this unit awards on its own. The target here is <b>Mark Band 3 on every strand</b> of all six tasks, out of 60.</span></li>'
++'<li><span class="k mono">The thread</span><span class="v">Research → profile → design → feedback → finances → risks. Each task is meant to feed the next, and the grids keep asking you to <b>refer back</b>. Work that carries the thread forward reads as Band 3 almost by itself.</span></li>'
++'</ul>'
++map()
++'<div class="ladder">'
++'<div class="rung"><span class="n mono">BAND 1</span><span class="w">Identifies</span><p>Basic, brief, limited. Lists things without developing them.</p></div>'
++'<div class="rung"><span class="n mono">BAND 2</span><span class="w">Describes</span><p>Sound, adequate, some. Right content, not fully developed.</p></div>'
++'<div class="rung top"><span class="n mono">BAND 3</span><span class="w">Justifies</span><p>Comprehensive, detailed, accurate, fully. Reasons explained in full.</p></div>'
++'</div>'
++'<div class="tiles">'+TASKS.map(function(s){
+return '<a class="tile" href="#'+s.id+'" data-tile="'+s.id+'"><span class="tt mono">'+esc(s.tag)+' · '+s.marks+'</span><span class="tn">'+esc(s.title)+'</span><span class="meter"><i></i></span><span class="tc mono">0/'+s.items.length+'</span></a>';
+}).join("")+'</div>'
++'</div>';
+}
+
+function section(s){
+return '<section class="ta wrap" id="'+s.id+'" data-sec="'+s.id+'">'
++'<div class="ta-top"><span class="tag mono">'+esc(s.tag)+'</span><h2>'+esc(s.title)+'</h2>'
++(s.marks?'<span class="marks mono">'+s.marks+' marks</span>':'')+'</div>'
++'<p class="ta-spec">'+esc(s.spec)+'</p>'
++'<div class="ta-meter"><span class="meter"><i></i></span><span class="c mono">0/'+s.items.length+'</span></div>'
++'<p class="band"><span class="bl">Band 3 reads as</span><span class="bt">'+esc(s.band)+'</span></p>'
++(s.ex?'<details class="ex" open><summary>Example bullets for this task</summary><ul>'
++s.ex.map(function(e){return '<li><span class="ex-lab">'+esc(e.l)+'</span><span class="ex-x">'+esc(e.x)+'</span></li>';}).join("")
++'</ul><p class="ex-note">Illustrative only. The percentages and figures are invented to show the shape of a Band 3 answer \u2014 copying them into your own work would be malpractice. Write sentences in this form around your own findings.</p></details>':'')
++'<ul class="items">'+s.items.map(function(it,i){var id=ids(s,i);
+return '<li class="item" data-item="'+id+'"><input type="checkbox" class="box" id="i-'+id+'" data-id="'+id+'" aria-labelledby="t-'+id+'">'
++'<label class="item-body" for="i-'+id+'"><span class="item-t" id="t-'+id+'">'+esc(it.t)+'</span><span class="item-w">'+esc(it.w)+'</span></label></li>';
+}).join("")+'</ul></section>';
+}
+
+function words(){
+return '<section class="words wrap" id="words"><div class="ta-top"><span class="tag mono">WORDS</span><h2>The words the grid marks you against</h2></div>'
++'<p class="lead">The brief ends with the exam board’s own definitions of the descriptor words used in the marking grids. These are the Mark Band 3 ones. Write to them literally.</p>'
++'<dl>'+WORDS.map(function(w){return '<dt>'+esc(w[0])+'</dt><dd>'+esc(w[1])+'</dd>';}).join("")+'</dl></section>';
+}
+
+function pitfalls(){
+return '<section class="pit wrap" id="pitfalls"><div class="ta-top"><span class="tag mono">RISK</span><h2>Where the marks get lost</h2></div>'
++'<p class="lead">Roughly in order of how often each one holds otherwise-good work below Mark Band 3.</p>'
++'<ol>'+PITS.map(function(p){return '<li><span>'+esc(p)+'</span></li>';}).join("")+'</ol></section>';
+}
+
+function foot(){
+return '<footer class="wrap"><p>Ticking every box is not a grade. It is a way of making sure nothing that carries marks is missing before you submit — the quality of the justification still decides the band.</p>'
++'<p>An unofficial personal study aid, built from the Secure Case set assignment. The brief itself is the authority on what each task requires; where the two disagree, the brief wins. The work you submit has to be your own.</p>'
++'<button class="reset" id="reset" type="button">Reset all ticks</button></footer>';
+}
+
+function render(){
+var app=document.getElementById("app");
+app.innerHTML=bar()+mast()+DATA.map(section).join("")+words()+pitfalls()+foot();
+app.addEventListener("change",function(ev){
+var el=ev.target;if(!el||!el.classList||!el.classList.contains("box"))return;
+var id=el.getAttribute("data-id");
+if(el.checked){state.checked[id]=1;}else{delete state.checked[id];}
+refresh();scheduleSave();
+});
+var rb=document.getElementById("reset");
+rb.addEventListener("click",function(){
+if(rb.getAttribute("data-armed")==="1"){
+rb.removeAttribute("data-armed");rb.textContent="Reset all ticks";
+state.checked={};refresh();scheduleSave();
+}else{
+rb.setAttribute("data-armed","1");rb.textContent="Tap again to clear everything";
+setTimeout(function(){if(rb.getAttribute("data-armed")==="1"){rb.removeAttribute("data-armed");rb.textContent="Reset all ticks";}},4000);
+}
+});
+refresh();
+}
+
+function refresh(){
+var done=0;
+DATA.forEach(function(s){
+var n=0;
+s.items.forEach(function(it,i){
+var id=ids(s,i);var on=!!state.checked[id];if(on){n++;}
+var box=document.getElementById("i-"+id);if(box){box.checked=on;}
+var li=document.querySelector('[data-item="'+id+'"]');if(li){li.classList.toggle("done",on);}
+});
+done+=n;
+var pc=s.items.length?Math.round(n/s.items.length*100):0;
+var sec=document.querySelector('[data-sec="'+s.id+'"]');
+if(sec){
+var m=sec.querySelector(".ta-meter");
+m.querySelector(".meter i").style.width=pc+"%";
+m.querySelector(".c").textContent=n+"/"+s.items.length;
+m.classList.toggle("done",n===s.items.length);
+}
+var tile=document.querySelector('[data-tile="'+s.id+'"]');
+if(tile){
+tile.querySelector(".meter i").style.width=pc+"%";
+tile.querySelector(".tc").textContent=n+"/"+s.items.length;
+tile.classList.toggle("full",n===s.items.length);
+}
+});
+var bc=document.getElementById("barcount");
+if(bc){bc.innerHTML="<b>"+done+"</b> of "+total+" done";}
+var bl=document.getElementById("barfill");
+if(bl){bl.style.width=(total?Math.round(done/total*100):0)+"%";}
+}
+
+var artifact=null,resolved=false,timer=null,tries=0;
+
+function setPill(s,txt){
+var p=document.getElementById("pill");if(!p)return;
+p.setAttribute("data-s",s);p.hidden=false;
+p.querySelector("span.t").textContent=txt;
+}
+function saveLocal(){
+try{localStorage.setItem(LS,JSON.stringify({checked:state.checked,updatedAt:Date.now()}));}catch(e){}
+}
+function loadLocal(){
+try{
+var r=localStorage.getItem(LS);if(!r)return;
+var p=JSON.parse(r);
+if(p&&p.checked&&(p.updatedAt||0)>(state.updatedAt||0)){state.checked=p.checked;refresh();}
+}catch(e){}
+}
+function buildDoc(next){
+var css=document.getElementById("ck-style").textContent;
+var code=document.getElementById("ck-code").textContent;
+var json=JSON.stringify(next).replace(/</g,"\\u003c");
+return '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
++'<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
++'<title>'+TITLE+'<\/title>\n'
++'<link rel="stylesheet" href="'+FONTS+'">\n'
++'<style id="ck-style">'+css+'<\/style>\n</head>\n<body>\n'
++'<div id="app"><\/div>\n'
++'<script id="ck-state" type="application/json">'+json+'<\/script>\n'
++'<script id="ck-code">'+code+'<\/script>\n</body>\n<\/html>';
+}
+function scheduleSave(){
+saveLocal();
+if(timer){clearTimeout(timer);}
+if(resolved&&!artifact){setPill("local","Ticks saved in this browser");return;}
+setPill("saving","Saving…");
+timer=setTimeout(flush,900);
+}
+function flush(){
+timer=null;
+if(!resolved){
+tries++;
+if(tries>40){setPill("local","Ticks saved in this browser");return;}
+timer=setTimeout(flush,400);return;
+}
+if(!artifact){setPill("local","Ticks saved in this browser");return;}
+var next={v:2,checked:state.checked,updatedAt:Date.now()};
+artifact.publish(buildDoc(next)).then(function(){
+setPill("saved","Saved to this page");
+})["catch"](function(err){
+var code=err&&err.code;
+if(code==="conflict"){setPill("saving","Updated elsewhere — reloading");}
+else if(code==="not_granted"||code==="not_writer"){artifact=null;setPill("local","View only — ticks stay on this device");}
+else{setPill("error","Not saved — try ticking again");}
+});
+}
+function boot(){
+render();
+var c=window.claude;
+var pr=(c&&typeof c.use==="function")?c.use("artifact"):Promise.resolve(null);
+Promise.resolve(pr)["catch"](function(){return null;}).then(function(a){
+artifact=a||null;resolved=true;
+if(artifact){setPill("saved","Ticks save to this page");}
+else{loadLocal();setPill("local","Ticks saved in this browser");}
+});
+}
+boot();
+</script>
+</body>
+</html>
