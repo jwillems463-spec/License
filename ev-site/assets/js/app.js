@@ -1,4 +1,4 @@
-/* EV Catalog — public front-end. No build step, no dependencies. */
+/* e-carscompare — public front-end. No build step, no dependencies. */
 (function () {
   'use strict';
 

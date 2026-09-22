@@ -17,7 +17,7 @@ No page scrolls horizontally at any of these widths (verified automatically). On
 **Desktop**
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ ⚡ EV Catalog                               Home  Browse EVs  Compare (3)│  ← sticky header
+│ ⚡ e-carscompare                            Home  Browse EVs  Compare (3)│  ← sticky header
 ├──────────────────────────────────────────────────────────────────────────┤
 │                   Find your next electric vehicle                        │  ← hero (from settings)
 │        Browse specs, filter by range and price, and compare…            │
@@ -46,7 +46,7 @@ No page scrolls horizontally at any of these widths (verified automatically). On
 │ │2 EVs  ││2 EVs  ││2 EVs  ││2 EVs  ││2 EVs  │    → /evs?brand=           │
 │ └───────┘└───────┘└───────┘└───────┘└───────┘                            │
 ├──────────────────────────────────────────────────────────────────────────┤
-│ © footer text (settings)                               hello@example.com │
+│ © footer text (settings)                         hello@e-carscompare.com │
 └──────────────────────────────────────────────────────────────────────────┘
 │ [Model 3 ×] [IONIQ 5 ×] [EV9 ×]                    (Clear) (Compare now) │  ← compare tray (fixed bottom,
 └──────────────────────────────────────────────────────────────────────────┘     only when ≥1 selected)
@@ -55,7 +55,7 @@ No page scrolls horizontally at any of these widths (verified automatically). On
 **Mobile**
 ```
 ┌──────────────────────┐
-│ ⚡ EV Catalog     ☰  │ ← menu opens a dropdown panel
+│ ⚡ e-carscompare  ☰  │ ← menu opens a dropdown panel
 ├──────────────────────┤
 │ Find your next       │
 │ electric vehicle     │
@@ -223,7 +223,7 @@ The selection is stored in `localStorage` and survives page loads. The URL is `/
 
 ```
 ┌──────────────────────────────┐      ┌──────────────────────────────┐
-│ ⚡ EV Catalog admin           │      │ Choose a new password        │
+│ ⚡ e-carscompare admin        │      │ Choose a new password        │
 │ Sign in                      │      │ ⚠ You must replace the       │
 │ Email    [               ]   │ ───► │   temporary password…        │
 │ Password [               ]   │ 1st  │ Current  [            ]      │
@@ -237,7 +237,7 @@ The selection is stored in `localStorage` and survives page loads. The URL is `/
 
 ```
 ┌────────────┬─────────────────────────────────────────────────────────────┐
-│ ⚡ EV Cat.  │                              Jane Doe [ADMIN] (Sign out)    │ ← topbar
+│ ⚡ e-cars…  │                              Jane Doe [ADMIN] (Sign out)    │ ← topbar
 │            ├─────────────────────────────────────────────────────────────┤
 │ ▣ Dashboard│ Dashboard                                         [+ Add EV]│
 │ 🚗 EVs      │ ┌──────────┐┌──────────┐┌──────────┐┌──────────┐            │

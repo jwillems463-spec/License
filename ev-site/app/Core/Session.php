@@ -13,7 +13,7 @@ final class Session
         $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
             || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
 
-        session_name((string) Config::get('session.name', 'evcatalog_session'));
+        session_name((string) Config::get('session.name', 'ecarscompare_session'));
         session_set_cookie_params([
             'lifetime' => 0,
             'path'     => base_path() === '' ? '/' : base_path() . '/',

@@ -1,6 +1,6 @@
 # Database schema (MySQL / MariaDB)
 
-Source: [`database/ev_catalog.sql`](../database/ev_catalog.sql). InnoDB, `utf8mb4_unicode_ci`, compatible with MySQL 5.7+ and MariaDB 10.3+.
+Source: [`database/e-carscompare.sql`](../database/e-carscompare.sql). InnoDB, `utf8mb4_unicode_ci`, compatible with MySQL 5.7+ and MariaDB 10.3+.
 
 ```mermaid
 erDiagram
@@ -117,7 +117,7 @@ Failed logins, used for throttling (5 failures per IP in 15 minutes returns 429)
 
 ## Seed data
 
-- 1 admin: `admin@example.com` / `ChangeMe123!`, forced to change the password at first login
+- 1 admin: `admin@e-carscompare.com` / `ChangeMe123!`, forced to change the password at first login
 - 10 brands, 16 EVs (15 published and 1 draft), with indicative sample specs
 - Default settings
 

@@ -1,6 +1,6 @@
-# EV Catalog REST API
+# e-carscompare REST API
 
-Base URL: `https://yourdomain.com/api` (or `/ev/api` in a subfolder install).
+Base URL: `https://e-carscompare.com/api` (or `/ev/api` in a subfolder install).
 All responses are JSON (`Content-Type: application/json`) and are never cached (`Cache-Control: no-store`), so admin changes appear immediately.
 
 ## Conventions
@@ -182,7 +182,7 @@ Roles and the active flag are re-read from the database on every request, so dem
 Send `null` or `""` to clear an optional field.
 
 ```bash
-curl -X PUT https://yourdomain.com/api/admin/evs/1 \
+curl -X PUT https://e-carscompare.com/api/admin/evs/1 \
   -H "X-CSRF-Token: $TOKEN" -H "Content-Type: application/json" -b cookies.txt \
   -d '{"price_usd": 44990, "status": "published"}'
 ```

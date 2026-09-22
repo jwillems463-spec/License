@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * EV Catalog — front controller.
+ * e-carscompare — front controller.
  * Every request (pages + /api/*) is routed through this file by .htaccess.
  */
 
@@ -15,7 +15,7 @@ use App\Core\Router;
 
 if (PHP_VERSION_ID < 80000) {
     http_response_code(500);
-    exit('EV Catalog requires PHP 8.0 or newer. Select a newer PHP version in cPanel > MultiPHP Manager.');
+    exit('e-carscompare requires PHP 8.0 or newer. Select a newer PHP version in cPanel > MultiPHP Manager.');
 }
 
 require __DIR__ . '/app/bootstrap.php';
@@ -50,7 +50,7 @@ try {
         echo e($e->getMessage());
     }
 } catch (\PDOException $e) {
-    error_log('[ev-catalog] DB error: ' . $e->getMessage());
+    error_log('[e-carscompare] DB error: ' . $e->getMessage());
     $msg = Config::get('app.debug') ? 'Database error: ' . $e->getMessage() : 'A database error occurred.';
     if ($request->isApi()) {
         Response::error(500, $msg);
@@ -59,7 +59,7 @@ try {
         echo '<h1>Server error</h1><p>' . e($msg) . '</p>';
     }
 } catch (\Throwable $e) {
-    error_log('[ev-catalog] ' . $e);
+    error_log('[e-carscompare] ' . $e);
     $msg = Config::get('app.debug') ? get_class($e) . ': ' . $e->getMessage() : 'An unexpected error occurred.';
     if ($request->isApi()) {
         Response::error(500, $msg);

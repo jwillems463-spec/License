@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Admin · <?= e($settings['site_name'] ?? 'EV Catalog') ?></title>
+  <title>Admin · <?= e($settings['site_name'] ?? 'e-carscompare') ?></title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%230b7a5a' d='M13 2 4 14h7l-1 8 9-12h-7z'/></svg>">
   <link rel="stylesheet" href="<?= e(asset('css/admin.css')) ?>">
 </head>
@@ -27,7 +27,7 @@
     window.ADMIN = <?= json_encode([
         'base'     => base_path(),
         'csrf'     => $csrf,
-        'siteName' => $settings['site_name'] ?? 'EV Catalog',
+        'siteName' => $settings['site_name'] ?? 'e-carscompare',
         'currency' => $settings['currency_symbol'] ?? '$',
     ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
   </script>

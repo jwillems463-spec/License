@@ -1,4 +1,4 @@
-# EV Catalog — Apache / cPanel configuration
+# e-carscompare — Apache / cPanel configuration
 
 Options -Indexes
 DirectoryIndex index.php

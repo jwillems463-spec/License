@@ -35,9 +35,9 @@ check "compare needs ids"          422 "$(curl -s -o /dev/null -w '%{http_code}'
 check "admin requires login"       401 "$(curl -s -o /dev/null -w '%{http_code}' "$BASE/api/admin/evs")"
 
 echo "Auth"
-check "login without CSRF rejected" 403 "$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -d '{"email":"admin@example.com","password":"ChangeMe123!"}' "$BASE/api/auth/login")"
-check "wrong password"             401 "$(req "$JAR" POST /api/auth/login '{"email":"admin@example.com","password":"nope"}' | code)"
-check "login"                      200 "$(req "$JAR" POST /api/auth/login '{"email":"admin@example.com","password":"ChangeMe123!"}' | code)"
+check "login without CSRF rejected" 403 "$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -d '{"email":"admin@e-carscompare.com","password":"ChangeMe123!"}' "$BASE/api/auth/login")"
+check "wrong password"             401 "$(req "$JAR" POST /api/auth/login '{"email":"admin@e-carscompare.com","password":"nope"}' | code)"
+check "login"                      200 "$(req "$JAR" POST /api/auth/login '{"email":"admin@e-carscompare.com","password":"ChangeMe123!"}' | code)"
 check "blocked until pw changed"   403 "$(req "$JAR" GET /api/admin/stats | code)"
 check "weak new password rejected" 422 "$(req "$JAR" POST /api/auth/password '{"current_password":"ChangeMe123!","new_password":"short"}' | code)"
 check "change password"            200 "$(req "$JAR" POST /api/auth/password '{"current_password":"ChangeMe123!","new_password":"NewAdminPass2026"}' | code)"
@@ -67,10 +67,10 @@ check "bulk unpublish"             200 "$(req "$JAR" POST /api/admin/evs/bulk "{
 check "hidden after unpublish"     404 "$(curl -s -o /dev/null -w '%{http_code}' "$BASE/api/evs/$SLUG")"
 
 echo "Users & roles"
-R=$(req "$JAR" POST /api/admin/users '{"name":"Ed Itor","email":"editor@example.com","role":"editor","password":"EditorPass2026","must_change_password":false}')
+R=$(req "$JAR" POST /api/admin/users '{"name":"Ed Itor","email":"editor@e-carscompare.com","role":"editor","password":"EditorPass2026","must_change_password":false}')
 check "create editor"              201 "$(echo "$R" | code)"
 UID2=$(echo "$R" | json 'd["data"]["id"]')
-check "editor login"               200 "$(req "$JAR2" POST /api/auth/login '{"email":"editor@example.com","password":"EditorPass2026"}' | code)"
+check "editor login"               200 "$(req "$JAR2" POST /api/auth/login '{"email":"editor@e-carscompare.com","password":"EditorPass2026"}' | code)"
 check "editor can edit EV"         200 "$(req "$JAR2" PUT /api/admin/evs/$EID '{"seats":5}' | code)"
 check "editor cannot delete EV"    403 "$(req "$JAR2" DELETE /api/admin/evs/$EID | code)"
 check "editor cannot bulk delete"  403 "$(req "$JAR2" POST /api/admin/evs/bulk "{\"ids\":[$EID],\"action\":\"delete\"}" | code)"
@@ -85,7 +85,7 @@ check "save settings"              200 "$(req "$JAR" PUT /api/admin/settings '{"
 check "reflected in meta"          "Volt Garage 3" "$(curl -s "$BASE/api/meta" | python3 -c 'import json,sys; s=json.load(sys.stdin)["settings"]; print(s["site_name"], s["max_compare"])')"
 check "reflected in HTML"          1   "$(curl -s "$BASE/" | grep -c '<title>Volt Garage')"
 check "invalid setting"            422 "$(req "$JAR" PUT /api/admin/settings '{"max_compare":"9"}' | code)"
-req "$JAR" PUT /api/admin/settings '{"site_name":"EV Catalog","max_compare":"4"}' >/dev/null
+req "$JAR" PUT /api/admin/settings '{"site_name":"e-carscompare","max_compare":"4"}' >/dev/null
 
 echo "Cleanup"
 check "delete EV"                  200 "$(req "$JAR" DELETE /api/admin/evs/$EID | code)"

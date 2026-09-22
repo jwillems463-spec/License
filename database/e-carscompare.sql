@@ -1,5 +1,5 @@
 -- =====================================================================
---  EV Catalog — MySQL / MariaDB schema + seed data
+--  e-carscompare — MySQL / MariaDB schema + seed data
 --  Compatible with MySQL 5.7+ / 8.x and MariaDB 10.3+
 --  Import via cPanel > phpMyAdmin > (select database) > Import
 -- =====================================================================
@@ -144,20 +144,20 @@ CREATE TABLE audit_log (
 -- =====================================================================
 
 -- Default administrator
---   email:    admin@example.com
+--   email:    admin@e-carscompare.com
 --   password: ChangeMe123!
 -- You are forced to change this password at first login.
 INSERT INTO users (name, email, password_hash, role, is_active, must_change_password) VALUES
-('Site Administrator', 'admin@example.com', '$2y$12$ZsCmZuwwUcLTCqhe3H70FumaiQz6M9sk1O4PgLYqILkt31733.wGu', 'admin', 1, 1);
+('Site Administrator', 'admin@e-carscompare.com', '$2y$12$ZsCmZuwwUcLTCqhe3H70FumaiQz6M9sk1O4PgLYqILkt31733.wGu', 'admin', 1, 1);
 
 INSERT INTO settings (setting_key, setting_value) VALUES
-('site_name',        'EV Catalog'),
+('site_name',        'e-carscompare'),
 ('site_tagline',     'Find, explore and compare electric vehicles'),
-('contact_email',    'hello@example.com'),
+('contact_email',    'hello@e-carscompare.com'),
 ('currency_symbol',  '$'),
 ('hero_title',       'Find your next electric vehicle'),
 ('hero_subtitle',    'Browse specs, filter by range and price, and compare up to 4 EVs side by side.'),
-('footer_text',      '© EV Catalog. Specifications are indicative and may vary by market.'),
+('footer_text',      '© e-carscompare. Specifications are indicative and may vary by market.'),
 ('max_compare',      '4'),
 ('items_per_page',   '12');
 

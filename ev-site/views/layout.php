@@ -1,6 +1,6 @@
 <?php
 /** @var string $view @var string $page @var array $settings */
-$siteName = $settings['site_name'] ?? 'EV Catalog';
+$siteName = $settings['site_name'] ?? 'e-carscompare';
 $pageTitle = isset($title) ? $title . ' · ' . $siteName : $siteName . ' — ' . ($settings['site_tagline'] ?? '');
 $metaDesc = $description ?? ($settings['site_tagline'] ?? '');
 $appConfig = [

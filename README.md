@@ -1,4 +1,4 @@
-# EV Catalog
+# e-carscompare
 
 A complete, deployable electric-vehicle catalog website: browse and filter EVs, view full specifications, compare up to 4 EVs side by side, and manage everything from a role-based admin dashboard.
 
@@ -37,10 +37,10 @@ ev-site/                  ← the website: upload its CONTENTS to cPanel public_
   views/                  PHP templates (layout, home, catalog, detail, compare, admin shell)
   assets/css, assets/js   app.css/app.js (public), admin.css/admin.js (admin SPA)
   uploads/                image uploads (script execution disabled)
-database/ev_catalog.sql   MySQL schema, seed data and default admin
+database/e-carscompare.sql   MySQL schema, seed data and default admin
 docs/                     deployment guide, API reference, DB schema, wireframes, components
 tests/smoke.sh            47-check end-to-end API test
-build.sh                  builds dist/ev-catalog-cpanel.zip
+build.sh                  builds dist/e-carscompare-cpanel.zip
 ```
 
 ## Deliverables
@@ -51,22 +51,22 @@ build.sh                  builds dist/ev-catalog-cpanel.zip
 | Component list | [docs/COMPONENTS.md](docs/COMPONENTS.md) |
 | Responsive layout | `ev-site/assets/css/*.css` (mobile-first, breakpoints at 640, 768, 1024 and 1280px) |
 | **B. Back-end:** API endpoints (EV list, detail, compare, admin CRUD, auth and roles) | [docs/API.md](docs/API.md), `ev-site/app/routes.php` |
-| Database schema (MySQL) | [database/ev_catalog.sql](database/ev_catalog.sql), [docs/DATABASE.md](docs/DATABASE.md) |
+| Database schema (MySQL) | [database/e-carscompare.sql](database/e-carscompare.sql), [docs/DATABASE.md](docs/DATABASE.md) |
 | Admin dashboard | `/admin` → `ev-site/assets/js/admin.js` |
 | **C. Integration:** front-end connected to the back-end, admin changes live instantly | Front-end JS consumes `/api/*`; no cache; verified by `tests/smoke.sh` |
 | cPanel deployable (PHP + MySQL) | `ev-site/` |
-| **D. Deployment package:** ready-to-upload folder | `ev-site/`, or run `./build.sh` → `dist/ev-catalog-cpanel.zip` |
-| SQL database file | `database/ev_catalog.sql` |
+| **D. Deployment package:** ready-to-upload folder | `ev-site/`, or run `./build.sh` → `dist/e-carscompare-cpanel.zip` |
+| SQL database file | `database/e-carscompare.sql` |
 | cPanel config instructions | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
 | `.env` / `config.php` setup | `ev-site/config.sample.php`, `ev-site/.env.example` |
 
 ## Deploy to cPanel (summary)
 
-1. Create a MySQL database and user in cPanel, then import `database/ev_catalog.sql` in phpMyAdmin.
+1. Create a MySQL database and user in cPanel, then import `database/e-carscompare.sql` in phpMyAdmin.
 2. Upload the contents of `ev-site/` to `public_html/`, including `.htaccess`.
 3. Copy `config.sample.php` to `config.php` and enter your database credentials.
 4. Select PHP 8.1 or newer in MultiPHP Manager.
-5. Open `/admin` and sign in with `admin@example.com` / `ChangeMe123!`. You must choose a new password straight away.
+5. Open `/admin` and sign in with `admin@e-carscompare.com` / `ChangeMe123!`. You must choose a new password straight away.
 
 Full step-by-step guide with troubleshooting: **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)**.
 
@@ -74,8 +74,8 @@ Full step-by-step guide with troubleshooting: **[docs/DEPLOYMENT.md](docs/DEPLOY
 
 ```bash
 # 1. Database
-mysql -uroot -e "CREATE DATABASE evcatalog CHARACTER SET utf8mb4"
-mysql -uroot evcatalog < database/ev_catalog.sql
+mysql -uroot -e "CREATE DATABASE ecarscompare CHARACTER SET utf8mb4"
+mysql -uroot ecarscompare < database/e-carscompare.sql
 
 # 2. Config
 cp ev-site/config.sample.php ev-site/config.php   # then edit the db section

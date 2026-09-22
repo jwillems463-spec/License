@@ -70,7 +70,7 @@ final class Config
         $bool = static fn($v) => in_array(strtolower((string) $v), ['1', 'true', 'yes', 'on'], true);
         return [
             'app' => [
-                'name'      => $env['APP_NAME'] ?? 'EV Catalog',
+                'name'      => $env['APP_NAME'] ?? 'e-carscompare',
                 'url'       => $env['APP_URL'] ?? '',
                 'base_path' => $env['APP_BASE_PATH'] ?? '',
                 'debug'     => $bool($env['APP_DEBUG'] ?? 'false'),
@@ -85,7 +85,7 @@ final class Config
                 'charset'  => 'utf8mb4',
             ],
             'session' => [
-                'name'     => $env['SESSION_NAME'] ?? 'evcatalog_session',
+                'name'     => $env['SESSION_NAME'] ?? 'ecarscompare_session',
                 'lifetime' => (int) ($env['SESSION_LIFETIME'] ?? 7200),
             ],
             'uploads' => [

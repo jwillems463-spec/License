@@ -1,8 +1,8 @@
-/* EV Catalog — admin dashboard (single-page app, hash routing, no dependencies). */
+/* e-carscompare — admin dashboard (single-page app, hash routing, no dependencies). */
 (function () {
   'use strict';
 
-  const CFG = window.ADMIN || { base: '', csrf: '', siteName: 'EV Catalog', currency: '$' };
+  const CFG = window.ADMIN || { base: '', csrf: '', siteName: 'e-carscompare', currency: '$' };
   const root = document.getElementById('admin-root');
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));

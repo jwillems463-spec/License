@@ -9,7 +9,7 @@ final class SettingsRepository
 {
     /** Editable settings with defaults and max length. */
     public const SCHEMA = [
-        'site_name'       => ['default' => 'EV Catalog', 'max' => 80, 'label' => 'Site name'],
+        'site_name'       => ['default' => 'e-carscompare', 'max' => 80, 'label' => 'Site name'],
         'site_tagline'    => ['default' => 'Find, explore and compare electric vehicles', 'max' => 160, 'label' => 'Tagline'],
         'contact_email'   => ['default' => '', 'max' => 190, 'label' => 'Contact email'],
         'currency_symbol' => ['default' => '$', 'max' => 5, 'label' => 'Currency symbol'],
