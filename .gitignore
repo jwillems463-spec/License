@@ -1,0 +1,11 @@
+# Local configuration (never commit credentials)
+ev-site/config.php
+ev-site/.env
+
+# Uploaded images
+ev-site/uploads/*
+!ev-site/uploads/.htaccess
+!ev-site/uploads/.gitkeep
+
+# Build output
+dist/
